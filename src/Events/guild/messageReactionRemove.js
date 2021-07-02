@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 
 
-const serverid = '325607843547840522';
+const serverid = '577511138032484360';
 const MafiaGame = require('../../data/mafia.js');
 
 const mafiaVoiceChannel = '812974460260450314'; //Войс канал мафии
-const mafiaTextChannel = '812974281574318092'; //Текстовой канал мафии
-const mafiaRoleLeading = '812974801446240267'; //Роль ведущего
+const mafiaTextChannel = '727111967281512458'; //Текстовой канал мафии
+const mafiaRoleLeading = '727112273704779797'; //Роль ведущего
+ 
 module.exports = async (bot, reaction, user) => {
 	if (reaction.message.partial) await reaction.message.fetch();
 	if (reaction.partial) await reaction.fetch();

@@ -3,7 +3,7 @@ const fs = require('fs');
 const Guild = require('../../data/guild.js');
 const Report = require('../../data/report.js');
 const moder = require('../../data/moder.js');
-
+const { randomColor } = require("../../../functions.js");
 
 
 
@@ -13,9 +13,9 @@ module.exports = {
     description: 'Закритие вопроса',
 
     async run(bot, message, args) {
-        const tehchannel = message.guild.channels.cache.find(c => c.name == `🚨│тех-поддержка`);
-        if (message.channel.parent.id === "706191118181597250") {
-            if (message.member.roles.cache.some(role => role.id === "822435940911284225")) {
+        const tehchannel = message.guild.channels.cache.find(c => c.name == `┃『📌』вопрос-ответ`);
+        if (message.channel.parent.id === "818783877325127740") {
+            if (message.member.roles.cache.some(role => role.id === "703270075666268160")) {
                 if (!args[0]) return;
                 const mainUser = message.mentions.members.first();
                 Guild.findOne({ guildID: message.guild.id }, async (err, guild) => {
@@ -23,10 +23,15 @@ module.exports = {
                     if (!guild) {
                         return console.log(`Server is undefined`);
                     }
-                    await Report.findOne({ reportUser: mainUser.id }, async (err, rep) => {
+                    await Report.findOne({ reportUser: mainUser.id },  async (err, rep) => {
                         if (err) console.log(err);
                         if (!rep) {
                             return console.log(`Пользователь репорт которого вы пытаетесь закрыть не найден в БД.Обратитесь к тех адмнку.`);
+                        }
+                        if (rep.reportModer != message.author.id) {
+                            message.delete({ timeout: 1000 });
+                            return message.channel.send(`**Нельзя закрыть не свой репорт!**`)
+                                .then(msg => msg.delete({ timeout: 5000 }))
                         }
                         await moder.findOne({ moderID: rep.reportModer }, async (err, mod) => {
                             if (err) console.log(err);
@@ -41,31 +46,30 @@ module.exports = {
                             guild.activeReports--;
                             guild.closedReports++;
                             guild.save();
-                            await tehchannel.messages.fetch('764455325935861770')
+                            tehchannel.messages.fetch('860568685940703292')
                                 .then(message => message.edit(
                                     new Discord.MessageEmbed()
-                                        .setAuthor("Report » Обработчик репортов.","https://cdn.discordapp.com/avatars/509074641025892419/c6f9ba7a1038a81f9876d162df5a89a6.png")
-                                        .setTitle("Rodina Rp 02 | Report ")
-                                        .setColor("#FC0202")
-                                        .addField("Правила подачи репорта:","\`\`\`1. Запрещено оскорбительное и неадекватное поведение.\n2. Запрещено создавать репорт с некорректным вопросом.\n3. После создания репорта сразу описывайте свою проблему. \n4. Запрещено флудить @упоминаниями.\n5. Запрещено оффтопить в канал репорта.\`\`\`")
+                                        .setAuthor("Report » Обработчик репортов.", "https://cdn.discordapp.com/avatars/509074641025892419/c6f9ba7a1038a81f9876d162df5a89a6.png")
+                                        .setTitle("Rodina Rp 04 | Report ")
+                                        .setColor(`#${randomColor()}`)
+                                        .addField("Правила подачи репорта:", "\`\`\`1. Запрещено оскорбительное и неадекватное поведение.\n2. Запрещено создавать репорт с некорректным вопросом.\n3. После создания репорта сразу описывайте свою проблему. \n4. Запрещено флудить @упоминаниями.\n5. Запрещено оффтопить в канал репорта.\`\`\`")
                                         .setImage("https://imgur.com/LKDbJeM.gif")
                                         .addField("Всего", `\`Обработанных запросов:\` ${guild.countReports}`, true)
-                                        .addField("Всего",`\`Активных запросов:\` ${guild.activeReports}`,true) 
-                                        .addField("Всего",`\`Закрытых запросов:\` ${guild.closedReports}`,true)
+                                        .addField("Всего", `\`Активных запросов:\` ${guild.activeReports}`, true)
+                                        .addField("Всего", `\`Закрытых запросов:\` ${guild.closedReports}`, true)
                                         .setFooter("© Report | by Developer Montano")
                                         .setTimestamp()
                                 ))
-                                .catch(err => console.log(err));
+                                .catch(err => message.channel.send(err));
                             await fs.open(`src/tempfiles/${message.channel.name}.txt`, 'w', (err) => {
                                 if (err) throw err;
                             });
                             await message.channel.messages.fetch().then(messages => messages.filter(msg => !msg.author.bot).sort((a,b) => a.createdAt - b.createdAt).each(msg => {
-                                let UTSDate = msg.createdAt;
-                                fs.appendFile(`src/tempfiles/${message.channel.name}.txt`, `[0${UTSDate.getDate()}-0${UTSDate.getMonth()}-2021 | ${UTSDate.getUTCHours() + 3} : ${UTSDate.getUTCMinutes()} : ${UTSDate.getUTCSeconds()}] ${msg.author.tag}:${msg.content} \n`, (err) => {
+                                fs.appendFile(`src/tempfiles/${message.channel.name}.txt`, `${msg.author.tag}:${msg.content} \n`, (err) => {
                                     if (err) throw err;
                                 });
                             }));
-                            await message.guild.channels.cache.find(ch => ch.name === 'report-logs').send({
+                            await message.guild.channels.cache.find(ch => ch.name === '╭『🔳』логи-репорта').send({
                                 files: [{
                                     attachment: `src/tempfiles/${message.channel.name}.txt`,
                                     name: `${message.guild.member(rep.reportUser).user.tag}.txt`

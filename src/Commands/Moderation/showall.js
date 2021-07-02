@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { randomColor, errorEmbed } = require("../../../functions.js");
+const { errorEmbed } = require("../../../functions.js");
 const Moder = require('../../data/moder');
 const User = require('../../data/user');
 const fs = require('fs');

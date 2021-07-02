@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const MafiaGame = require('../../data/mafia.js');
 const Guild = require('../../data/guild.js');
 
-const mafiaTextChannel = '812974281574318092'; //Текстовой канал мафии
-const mafiaRolePlayer = '812983805060186112'; //Роль играков мафии
+const mafiaTextChannel = '727111967281512458'; //Текстовой канал мафии
+const mafiaRolePlayer = '720958695764131850'; //Роль играков мафии
 
 
 module.exports = {

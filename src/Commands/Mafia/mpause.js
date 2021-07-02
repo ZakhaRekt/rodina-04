@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const MafiaGame = require('../../data/mafia.js');
 
-const mafiaTextChannel = '812974281574318092'; //Текстовой канал мафии
-const mafiaRolePlayer = '812983805060186112'; //Роль играков мафии
-const mafiaRoleLeading = '812974801446240267'; //Роль ведущегоего
+const mafiaTextChannel = '727111967281512458'; //Текстовой канал мафии
+const mafiaRolePlayer = '720958695764131850'; //Роль играков мафии
+const mafiaRoleLeading = '727112273704779797'; //Роль ведущегоего
 
 
 

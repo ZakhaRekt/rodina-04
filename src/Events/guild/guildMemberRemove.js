@@ -23,11 +23,11 @@ module.exports = async (bot,member) => {
             data.activeReports--;
             data.save()
         });
-        const tehchannel = bot.channels.cache.find(c=> c.name == `🚨│тех-поддержка`);
-        tehchannel.messages.fetch('764455325935861770').then(message => message.edit(
+        const tehchannel = bot.channels.cache.find(c=> c.name == `┃『📌』вопрос-ответ`);
+        tehchannel.messages.fetch('860568685940703292').then(message => message.edit(
             new Discord.MessageEmbed()
                 .setAuthor("Report » Обработчик репортов.","https://cdn.discordapp.com/avatars/509074641025892419/c6f9ba7a1038a81f9876d162df5a89a6.png")
-                .setTitle("Rodina Rp 02 | Report ")
+                .setTitle("Rodina Rp 04 | Report")
                 .setColor("#FC0202")
                 .addField("Правила подачи репорта:","\`\`\`1. Запрещено оскорбительное и неадекватное поведение.\n2. Запрещено создавать репорт с некорректным вопросом.\n3. После создания репорта сразу описывайте свою проблему. \n4. Запрещено флудить @упоминаниями.\n5. Запрещено оффтопить в канал репорта.\`\`\`")
                 .setImage("https://imgur.com/LKDbJeM.gif")

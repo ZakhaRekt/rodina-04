@@ -18,7 +18,7 @@ module.exports = {
         var totalCounter = 0;
         const ModerationEmbed = new Discord.MessageEmbed()
             .setColor(`${message.member.displayHexColor}`)
-            .setTitle(`**Список Администраторов | Rodina Southern District**`)
+            .setTitle(`**Список Администраторов | Rodina Easten District**`)
         ModerationRoles.forEach(element => {
             message.guild.roles.cache.each(role => {
                 if(role.id === element) {

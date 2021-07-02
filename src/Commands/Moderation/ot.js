@@ -10,8 +10,8 @@ module.exports = {
     description: 'Взять вопрос под свой контроль',
 
     async run(bot, message) {
-        if(message.channel.parent.id != "706191118181597250") return;
-        if(!message.member.roles.cache.some(role => role.id === "822435940911284225")) return;
+        if(message.channel.parent.id != "818783877325127740") return;
+        if(!message.member.roles.cache.some(role => role.id === "703270075666268160")) return;
         let reporter = message.channel.name.slice(7);
         Report.findOne({reportUser: reporter},(err,rep) => {
             if(err) console.log(err);
