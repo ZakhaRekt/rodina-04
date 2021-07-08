@@ -3,7 +3,7 @@ const fs = require('fs');
 const Guild = require('../../data/guild.js');
 const Report = require('../../data/report.js');
 const moder = require('../../data/moder.js');
-const { randomColor } = require("../../../functions.js");
+const { randomColor, errorEmbed } = require("../../../functions.js");
 
 
 
@@ -16,7 +16,7 @@ module.exports = {
         const tehchannel = message.guild.channels.cache.find(c => c.name == `┃『📌』вопрос-ответ`);
         if (message.channel.parent.id === "818783877325127740") {
             if (message.member.roles.cache.some(role => role.id === "703270075666268160")) {
-                if (!args[0]) return;
+                if (!args[0]) return message.channel.send(errorEmbed('Используйте: -close @упоминание', message.author));
                 const mainUser = message.mentions.members.first();
                 Guild.findOne({ guildID: message.guild.id }, async (err, guild) => {
                     if (err) console.log(err);
