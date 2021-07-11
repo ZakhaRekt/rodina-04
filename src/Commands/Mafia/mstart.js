@@ -3,6 +3,7 @@ const MafiaGame = require('../../data/mafia.js');
 
 const mafiaTextChannel = '727111967281512458'; //Текстовой канал мафии
 const mafiaRoleLeading = '727112273704779797'; //Роль ведущего
+const mafiaVoiceChannel = '727111883018207303'; //Войс канал мафии
 
 
 module.exports = {
