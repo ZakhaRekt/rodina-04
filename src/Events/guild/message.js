@@ -246,7 +246,7 @@ module.exports = async (bot, message) => {
                     if (!guild) {
                         return console.log(`Сервер не найден`);
                     }
-                    const tehchannel = message.guild.channels.cache.find(c => c.name == `┃『📌』вопрос-ответ`);
+                    const tehchannel = message.guild.channels.cache.find(c => c.name == `📌│вопрос-ответ`);
                     const supportedRoles = [
                         "⚒ Support Team ⚒",
                         "☆ Администратор ☆",

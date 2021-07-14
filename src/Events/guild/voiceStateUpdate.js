@@ -17,15 +17,15 @@ module.exports = async (bot, oldState, newState) => {
     const PrivatCategory = await bot.channels.cache.find(ch => ch.id === '701697659852947466');
     if (newState.channel) {
         if (oldState.channel) {
-            if (oldState.channel.parentID === '701697659852947466' && oldState.channel.name != '╰『✅』 Перемещение в приват') {
+            if (oldState.channel.parentID === '701697659852947466' && oldState.channel.name != '✅│Создать приват') {
                 if (oldState.channel.members.size <= 0) {
                     return oldState.channel.delete({ timeout: 1000 });
                 }
             }
         }
-        if (newState.channel.name === '╰『✅』 Перемещение в приват') {
+        if (newState.channel.name === '✅│Создать приват') {
             if (newState.channel.parent.children.each(ch => {
-                if (ch.name === '╰『✅』 Перемещение в приват') return;
+                if (ch.name === '✅│Создать приват') return;
                 if (ch.members.size <= 0) ch.delete({ timeout: 1000 });
             }));
             const NewChannel = await newState.guild.channels.create(`『✅』 ${newState.member.user.tag}`, {
@@ -51,7 +51,7 @@ module.exports = async (bot, oldState, newState) => {
             await newState.setChannel(NewChannel);
         }
     } else if (oldState.channel) {
-        if (oldState.channel.parentID === '701697659852947466' && oldState.channel.name != '╰『✅』 Перемещение в приват') {
+        if (oldState.channel.parentID === '701697659852947466' && oldState.channel.name != '✅│Создать приват') {
             if (oldState.channel.members.size <= 0) {
                 return oldState.channel.delete({ timeout: 1000 });
             }
