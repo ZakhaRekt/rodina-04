@@ -13,7 +13,7 @@ module.exports = {
     description: 'Закритие вопроса',
 
     async run(bot, message, args) {
-        const tehchannel = message.guild.channels.cache.find(c => c.name == `📌│вопрос-ответ`);
+        const tehchannel = message.guild.channels.cache.find(c => c.name == `📌︙вопрос-ответ`);
         if (message.channel.parent.id === "818783877325127740") {
             if (message.member.roles.cache.some(role => role.id === "703270075666268160")) {
                 if (!args[0]) return message.channel.send(errorEmbed('Используйте: -close @упоминание', message.author));
