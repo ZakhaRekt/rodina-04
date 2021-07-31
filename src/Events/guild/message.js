@@ -207,8 +207,8 @@ module.exports = async (bot, message) => {
                         message.reply(`\`Ошибка выполнения. Роль ${rolename} не была найдена.\``)
                         return console.error(`Роль ${rolename} не найдена!`);
                     } else if (!reqchat) {
-                        message.reply(`\`Ошибка выполнения. Канал 📥│requests-for-roles не был найден!\``)
-                        return console.error(`Канал 📥│requests-for-roles не был найден!`)
+                        message.reply(`\`Ошибка выполнения. Канал 📥︙requests-for-roles не был найден!\``)
+                        return console.error(`Канал 📥︙requests-for-roles не был найден!`)
                     }
                     if (message.member.roles.cache.some(r => [rolename].includes(r.name))) {
                         return message.react(`👌`) // Если роль есть, поставить окей.
