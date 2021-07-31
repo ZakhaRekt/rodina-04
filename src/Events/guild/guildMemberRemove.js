@@ -24,7 +24,7 @@ module.exports = async (bot,member) => {
             data.save()
         });
         const tehchannel = bot.channels.cache.find(c=> c.name == `📌︙вопрос-ответ`);
-        tehchannel.messages.fetch('820618831214411796').then(message => message.edit(
+        tehchannel.messages.fetch('860568685940703292').then(message => message.edit(
             new Discord.MessageEmbed()
                 .setAuthor("Report » Обработчик репортов.","https://cdn.discordapp.com/avatars/509074641025892419/c6f9ba7a1038a81f9876d162df5a89a6.png")
                 .setTitle("Rodina Rp 04 | Report")
