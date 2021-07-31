@@ -202,7 +202,7 @@ module.exports = async (bot, message) => {
                 if (nicknametest.includes("[" + manytags[i].toLowerCase()) || nicknametest.includes(manytags[i].toLowerCase() + "]") || nicknametest.includes("(" + manytags[i].toLowerCase()) || nicknametest.includes(manytags[i].toLowerCase() + ")") || nicknametest.includes("{" + manytags[i].toLowerCase()) || nicknametest.includes(manytags[i].toLowerCase() + "}")) {
                     let rolename = tags[manytags[i].toUpperCase()] // Указать название роли по соответствию с тэгом
                     let role = message.guild.roles.cache.find(r => r.name == rolename); // Найти эту роль на discord сервере.
-                    let reqchat = message.guild.channels.cache.find(c => c.name == `📥│requests-for-roles`); // Найти чат на сервере.
+                    let reqchat = message.guild.channels.cache.find(c => c.name == `📥︙requests-for-roles`); // Найти чат на сервере.
                     if (!role) {
                         message.reply(`\`Ошибка выполнения. Роль ${rolename} не была найдена.\``)
                         return console.error(`Роль ${rolename} не найдена!`);
