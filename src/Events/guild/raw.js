@@ -45,7 +45,7 @@ module.exports = async (bot,event) => {
         let message = await channel.messages.fetch(event_messageid); // Получить сообщение из канала
         let member = server.members.cache.find(m => m.id == event_userid); // Получить пользователя с сервера
 
-        if (channel.name != `📥│requests-for-roles`) return; // Если название канала не будет '📥│requests-for-roles', то выйти
+        if (channel.name != `📥︙requests-for-roles`) return; // Если название канала не будет '📥︙requests-for-roles', то выйти
         Guild.findOne({guildID: event_guildid}, async (err,data) => {
         		if(err) console.log(err);
         		if(!data) {
