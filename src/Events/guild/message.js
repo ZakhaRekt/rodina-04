@@ -127,10 +127,10 @@ module.exports = async (bot, message) => {
             let user = message.guild.member(message.mentions.users.first());
             if (!user) return message.react(`📛`)
             if (data.snyatie.includes(message.author.id + `=>` + user.id)) return message.react(`🕖`)
-            let reqchat = message.guild.channels.cache.find(c => c.name == `📥│requests-for-roles`); // Найти чат на сервере.
+            let reqchat = message.guild.channels.cache.find(c => c.name == `📥︙requests-for-roles`); // Найти чат на сервере.
             if (!reqchat) {
-                message.reply(`\`Ошибка выполнения. Канал 📥│requests-for-roles не был найден!\``)
-                return console.error(`Канал 📥│requests-for-roles не был найден!`)
+                message.reply(`\`Ошибка выполнения. Канал 📥︙requests-for-roles не был найден!\``)
+                return console.error(`Канал 📥︙requests-for-roles не был найден!`)
             }
             let roleremove = user.roles.cache.find(r => rolesgg.includes(r.name));
             if (!roleremove) return message.react(`📛`)
