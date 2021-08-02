@@ -69,7 +69,7 @@ module.exports = {
                                     if (err) throw err;
                                 });
                             }));
-                            await message.guild.channels.cache.find(ch => ch.name === '╭『🔳』логи-репорта').send({
+                            await message.guild.channels.cache.find(ch => ch.name === '🔳︙логи-репорта').send({
                                 files: [{
                                     attachment: `src/tempfiles/${message.channel.name}.txt`,
                                     name: `${message.guild.member(rep.reportUser).user.tag}.txt`
