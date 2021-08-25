@@ -252,8 +252,7 @@ module.exports = async (bot, message) => {
                     const tehchannel = message.guild.channels.cache.find(c => c.name == `📌︙вопрос-ответ`);
                     const supportedRoles = [
                         "⚒ Support Team ⚒",
-                        "☆ Администратор ☆",
-                        "@everyone",
+                        "🕊️ Администратор 4 LVL 🕊️",
                     ];
                     const moderRole = message.guild.roles.cache.find(r => r.name == supportedRoles[0]);
                     const embedFinish = new Discord.MessageEmbed()
@@ -300,7 +299,7 @@ module.exports = async (bot, message) => {
                             READ_MESSAGE_HISTORY: true,
                             MANAGE_REACTIONS: true
                         }))
-                        .then(i => i.createOverwrite(message.guild.roles.cache.find(role => role.name === supportedRoles[2]), {
+                        .then(i => i.createOverwrite(message.guild.roles.cache.get(message.guild.id), {
                             VIEW_CHANNEL: false,
                             SEND_MESSAGES: false,
                         }))
