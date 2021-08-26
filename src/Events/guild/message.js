@@ -265,10 +265,10 @@ module.exports = async (bot, message) => {
                         .addField("Если у вас не осталось вопросов", `\`Вы можете закрыть свое обращение нажав на \`  ✔`)
                         .setFooter("© Report | by Developer Montano")
                         .setTimestamp();
+                    bot.channels.cache.get(${message.author.id}).send(<@&${moderRole.id}>)
                     const generatedChannel = `вопрос-${message.author.id}`;
                     try {
                         await message.member.send(`\`Канал вашего обращения  - ${generatedChannel}\``)
-                        await message.channel.send(`<@&${moderRole.id}>`)
                     } catch (err) {
                         console.log(`У ${message.member.displayName} закрыта личка! //Report`)
                     }
