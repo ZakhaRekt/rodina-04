@@ -255,7 +255,6 @@ module.exports = async (bot, message) => {
                         "🕊️ Администратор 4 LVL 🕊️",
                     ];
                     const moderRole = message.guild.roles.cache.find(r => r.name == supportedRoles[0]);
-                    message.channel.send(`<@&${moderRole.id}>`)
                     const embedFinish = new Discord.MessageEmbed()
                         .setTitle("`Report » Поступила новый вопрос/жалоба.`")
                         .setColor(`${message.member.displayHexColor}`)
@@ -269,6 +268,7 @@ module.exports = async (bot, message) => {
                     const generatedChannel = `вопрос-${message.author.id}`;
                     try {
                         await message.member.send(`\`Канал вашего обращения  - ${generatedChannel}\``)
+                        await message.channel.send(`<@&${moderRole.id}>`)
                     } catch (err) {
                         console.log(`У ${message.member.displayName} закрыта личка! //Report`)
                     }
