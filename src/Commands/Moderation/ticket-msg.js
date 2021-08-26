@@ -1,7 +1,7 @@
 // i have already coded the ticket system and posted it on my server so join my server and go to js codes
 
 const {
-    Client,
+    bot,
     Message,
     MessageEmbed,
     MessageButton,
@@ -11,11 +11,11 @@ const {
 module.exports = {
     name: 'ticket-msg',
     /** 
-     * @param {Client} client 
+     * @param {bot} bot 
      * @param {Message} message 
      * @param {String[]} args 
      */
-    run: async (client, message, args, Discord) => {
+    run: async (bot, message, args, Discord) => {
         const embed = new MessageEmbed()
             .setColor('BLUE')
             .setAuthor(message.guild.name, message.guild.iconURL({
