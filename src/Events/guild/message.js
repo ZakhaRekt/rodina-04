@@ -265,7 +265,6 @@ module.exports = async (bot, message) => {
                         .addField("Если у вас не осталось вопросов", `\`Вы можете закрыть свое обращение нажав на \`  ✔`)
                         .setFooter("© Report | by Developer Montano")
                         .setTimestamp();
-                    bot.channels.cache.get(${message.author.id}).send(<@&${moderRole.id}>)
                     const generatedChannel = `вопрос-${message.author.id}`;
                     try {
                         await message.member.send(`\`Канал вашего обращения  - ${generatedChannel}\``)
@@ -275,6 +274,7 @@ module.exports = async (bot, message) => {
                     if (message.guild.channels.cache.some(c => c.name === generatedChannel)) {
                         return message.channel.send(`\`Канал\` **${generatedChannel}** \`уже существует\``).then(msg => msg.delete({ timeout: 5000 }));
                     }
+                    bot.channels.cache.get(${message.author.id}).send(<@&${moderRole.id}>)
                     guild.countReports++;
                     guild.activeReports++;
                     const supportEmbed = new Discord.MessageEmbed()
