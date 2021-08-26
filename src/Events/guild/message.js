@@ -255,6 +255,7 @@ module.exports = async (bot, message) => {
                         "🕊️ Администратор 4 LVL 🕊️",
                     ];
                     const moderRole = message.guild.roles.cache.find(r => r.name == supportedRoles[0]);
+                    message.channel.send(`<@&${moderRole.id}>`)
                     const embedFinish = new Discord.MessageEmbed()
                         .setTitle("`Report » Поступила новый вопрос/жалоба.`")
                         .setColor(`${message.member.displayHexColor}`)
