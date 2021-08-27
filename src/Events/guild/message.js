@@ -274,7 +274,6 @@ module.exports = async (bot, message) => {
                     if (message.guild.channels.cache.some(c => c.name === generatedChannel)) {
                         return message.channel.send(`\`Канал\` **${generatedChannel}** \`уже существует\``).then(msg => msg.delete({ timeout: 5000 }));
                     }
-                    bot.channels.cache.get(${message.author.id}).send(<@&${moderRole.id}>)
                     guild.countReports++;
                     guild.activeReports++;
                     const supportEmbed = new Discord.MessageEmbed()
